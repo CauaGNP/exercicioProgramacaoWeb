@@ -59,9 +59,13 @@ p{
     font-size: 14px;
 }
 
-picture{
-    display: flex;
-    justify-content: center;
+.imagemmob{
+    display: block;
+    margin: auto;
+}
+
+.imagempc{
+    display: none;
 }
 
 a{

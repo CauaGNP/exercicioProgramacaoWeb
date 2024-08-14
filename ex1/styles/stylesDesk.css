@@ -15,8 +15,13 @@
         transition: all 0.2s ease;
     }
 
-    picture{
-        margin: 12px;
+    .imagempc{
+        display: block;
+        margin: auto;
+    }
+
+    .imagemmob{
+        display: none;
     }
 
     footer{

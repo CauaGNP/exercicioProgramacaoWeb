@@ -1,14 +1,17 @@
-let botaoSubmit = document.getElementById("botao");
+let botaosubmit = document.querySelector('#botao');
 
-botaoSubmit.addEventListener('click', ()=>{
-    let inputValor = document.getElementById("numeroId");
-    let inputSomatorio = document.getElementById("somatorioId");
+botaosubmit.addEventListener( 'click', ()=>{
+    let inputValor = document.querySelector('#numeroId');
+    let inputsoma = document.querySelector('#somatorioId');
 
-    if(inputValor == ''){
-        alert("Digite um número inteiro")
+    let num = parseInt(inputValor.value)
+    
+    if (!isNaN(num)){
+        inputsoma.value = Number(inputValor.value) + Number(inputsoma.value);
     }
     else{
-        inputSomatorio.value = Number(inputValor.value) + Number(inputSomatorio.value);
+        alert("Digite um número inteiro!");
+        inputValor.focus();
+        inputValor = " ";
     }
-
 })

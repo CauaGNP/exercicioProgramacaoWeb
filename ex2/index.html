@@ -5,18 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atividade</title>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styled.css">
 </head>
 <body>
-    <h1>Somatorio</h1>
-    <div>
-        <label for="numeroId">Número</label>
-        <input type="number" id="numeroId" value="0">
+    <div class="main">
+        <h1>Somatorio</h1>
+        <div>
+            <label for="numeroId">Número:</label>
+            <input type="number" id="numeroId" value="0">
+
+        </div>
+        <label for="somatorioId">Somatorio:</label>
+        <input type="number" id="somatorioId" value="0" readonly>
+        <div>
+            <label for="mediaId">Media:</label>
+            <input type="text" id="mediaId" value="0" readonly>
+        </div>
+        <div>
+            <label for="quaClick">Quantidade de clicks:</label>
+            <input type="text" id="quaClick" value="0" readonly>
+        </div>
         <button id="botao">Adicionar</button>
-    </div>
-    <label for="somatorioId">Somatorio</label>
-    <input type="number" id="somatorioId" value="0" readonly>
-    <div>
-        <input type="text" id="mediaId">
+        <button id="limparId">Limpar</button>
     </div>
 </body>
 </html>

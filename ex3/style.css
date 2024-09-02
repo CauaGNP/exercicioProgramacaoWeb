@@ -1,6 +1,40 @@
+body{
+    background-color: rgb(211, 211, 211);
+}
+
+h1{
+    font-size: 24px;
+    text-align: center;
+}
+
 span{
-    display: block;
+    margin: auto;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 24px;
     font-weight: bold;
+}
+
+div{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mV{
+    background-color: #6A9C89;
+    padding: 8px;
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    margin-bottom: 16px;
+    border: 1px solid black;
+}
+
+.looping{
+    background-color: #C4DAD2;
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    padding: 8px;
+    border: 1px solid black;
 }

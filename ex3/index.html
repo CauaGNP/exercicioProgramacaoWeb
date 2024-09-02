@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,16 +8,36 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
-        <label for="menorValor">Menor Valor</label>
-        <input type="text" id="menorValor">
+    <div class="mV">
+        <h1>Número Sorteado</h1>
+        <div>
+            <label for="menorValor">Menor Valor</label>
+            <input type="text" id="menorValor">
+        </div>
+        <div>
+            <label for="maiorValor">Maior Valor</label>
+            <input type="text" id="maiorValor">
+        </div>
+        <button id="buttonSortear">Sortear</button>
+        <span id="valueSpan"></span>
     </div>
-    <div>
-        <label for="maiorValor">Maior Valor</label>
-        <input type="text" id="maiorValor">
-    </div>
-    <button id="buttonSortear">Sortear</button>
 
-    <span id="valueSpan"></span>
+    <div class="looping">
+        <h1>Número Sorteado Loop</h1>
+        <div>
+            <label for="menorValorLoop">Menor Valor</label>
+            <input type="text" id="menorValorLoop">
+        </div>
+        <div>
+            <label for="maiorValorLoop">Maior Valor</label>
+            <input type="text" id="maiorValorLoop">
+        </div>
+        <div>
+            <label for="QuanNumSortId">Quantidade de números sorteados</label>
+            <input type="text" id="QuanNumSortId">
+        </div>
+        <button id="buttonSortearLoop">Sortear</button>
+        <span id="valueSpanLoop"></span>
+    </div>
 </body>
 </html>

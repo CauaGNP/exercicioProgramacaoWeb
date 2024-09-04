@@ -1,14 +1,49 @@
 let botao = document.querySelector('#buttonId');
-let p = document.querySelector('#pId');
+let botaoL = document.querySelector('#clearButtonId')
+let pre = document.querySelector('#pId');
+
+let matricula = document.querySelector('#matriculaId');
+let nome = document.querySelector('#nomeId');
+let cpf = document.querySelector('#cpfId');
+let idade = document.querySelector('#idadeId');
 
 botao.addEventListener('click', () => {
-    const cadastro = {
-        matricula: document.querySelector('#matriculaId').value,
-        nome: document.querySelector('#nomeId').value,
-        cpf: document.querySelector('#cpfId').value,
-        idade: document.querySelector('#idadeId').value
+
+    let idadeValor = Number(idade.value);
+
+    if (matricula.value === ''){
+        alert('Matricula não preenchida')
+        matricula.focus()
+    }else if(nome.value === ''){
+        alert('Nome não preenchido')
+        nome.focus()
+    }else if(cpf.value === ''){
+        alert('CPF não preenchido')
+        cpf.focus()
+    }else if(idade.value === '' || isNaN(idadeValor)){
+        alert('Idade não preenchida ou letras')
+        idade.focus()
+    }else if (!Number.isInteger(idadeValor)) {
+        alert('A idade deve ser um número inteiro.');
+        idade.focus()
+    }else{
+        const cadastro = {
+            matricula: matricula.value,
+            nome: nome.value,
+            cpf: cpf.value,
+            idade:idade.value
+        }
+        console.log(cadastro)
+        pre.innerHTML += JSON.stringify(cadastro) + '<br>';
     }
-    console.log(cadastro)
-    
-    p.innerHTMT = JSON.stringify(cadastro)
+})
+
+botaoL.addEventListener('click', () => {
+    matricula.value = '';
+    nome.value = '';
+    cpf.value = '';
+    idade.value = '';
+    matricula.focus();
+
+    pre.innerHTML = ''
 })

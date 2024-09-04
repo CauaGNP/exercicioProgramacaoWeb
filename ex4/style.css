@@ -1,10 +1,12 @@
 main{
     background-color: rgb(101, 101, 238);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     width: 500px;
     height: 500px;
     padding: 10px;
     margin: auto;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 1px solid black;
+    border-radius: 6px;
 }
 
 main div{

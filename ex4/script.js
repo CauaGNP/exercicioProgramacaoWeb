@@ -1,5 +1,3 @@
-let botao = document.querySelector('#buttonId');
-let botaoL = document.querySelector('#clearButtonId')
 let pre = document.querySelector('#pId');
 
 let matricula = document.querySelector('#matriculaId');
@@ -7,8 +5,8 @@ let nome = document.querySelector('#nomeId');
 let cpf = document.querySelector('#cpfId');
 let idade = document.querySelector('#idadeId');
 
-botao.addEventListener('click', () => {
-
+function buttonAdd(){
+    
     let idadeValor = Number(idade.value);
 
     if (matricula.value === ''){
@@ -36,9 +34,9 @@ botao.addEventListener('click', () => {
         console.log(cadastro)
         pre.innerHTML += JSON.stringify(cadastro) + '<br>';
     }
-})
+}
 
-botaoL.addEventListener('click', () => {
+function buttonClear(){
     matricula.value = '';
     nome.value = '';
     cpf.value = '';
@@ -46,4 +44,4 @@ botaoL.addEventListener('click', () => {
     matricula.focus();
 
     pre.innerHTML = ''
-})
+}

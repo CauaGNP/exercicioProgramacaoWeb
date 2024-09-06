@@ -1,7 +1,6 @@
-let botao = document.querySelector('#buttonSortear');
 let span = document.querySelector('#valueSpan');
 
-botao.addEventListener('click', () => {
+function buttonRandom(){
 
     let menorValor = parseInt(document.querySelector('#menorValor').value);
     let maiorValor = parseInt(document.querySelector('#maiorValor').value);
@@ -10,12 +9,11 @@ botao.addEventListener('click', () => {
     let numero = numeroAleatorio
     span.innerHTML = numero;
     console.log(numero)
-});
+}
 
-let botaoLoop = document.querySelector('#buttonSortearLoop');
 let spanLoop = document.querySelector('#valueSpanLoop')
 
-botaoLoop.addEventListener('click', () => {
+function buttonRandomLoop(){
     let menorLoop = parseInt(document.querySelector('#menorValorLoop').value);
     let maiorLoop = parseInt(document.querySelector('#maiorValorLoop').value);
     let quanNumLoop = parseInt(document.querySelector('#QuanNumSortId').value);
@@ -29,4 +27,4 @@ botaoLoop.addEventListener('click', () => {
         console.log(resultado)
     }
     spanLoop.innerHTML = resultado
-})
+}

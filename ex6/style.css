@@ -1,0 +1,12 @@
+#separador{
+    display: flex;
+    flex-direction: row;
+    gap:12px;
+    justify-content: center;
+}
+
+.separador{
+    padding: 12px;
+    border: 1px solid black;
+    font-size: 40px;
+}

@@ -4,34 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Jogo da forca</h1>
-    <button id="A" onclick="clicar()">A</button>
-    <button id="B" onclick="clicar()">B</button>
-    <button id="C" onclick="clicar()">C</button>
-    <button id="D" onclick="clicar()">D</button>
-    <button id="E" onclick="clicar()">E</button>
-    <button id="F" onclick="clicar()">F</button>
-    <button id="G" onclick="clicar()">G</button>
-    <button id="H" onclick="clicar()">H</button>
-    <button id="I" onclick="clicar()">I</button>
-    <button id="J" onclick="clicar()">J</button>
-    <button id="K" onclick="clicar()">K</button>
-    <button id="L" onclick="clicar()">L</button>
-    <button id="M" onclick="clicar()">M</button>
-    <button id="N" onclick="clicar()">N</button>
-    <button id="O" onclick="clicar()">O</button>
-    <button id="P" onclick="clicar()">P</button>
-    <button id="Q" onclick="clicar()">Q</button>
-    <button id="R" onclick="clicar()">R</button>
-    <button id="S" onclick="clicar()">S</button>
-    <button id="T" onclick="clicar()">T</button>
-    <button id="U" onclick="clicar()">U</button>
-    <button id="V" onclick="clicar()">V</button>
-    <button id="W" onclick="clicar()">W</button>
-    <button id="X" onclick="clicar()">X</button>
-    <button id="Y" onclick="clicar()">Y</button>
-    <button id="Z" onclick="clicar()">Z</button>
+    <div id="palavra"></div>
+    <div id="teclado"></div>
+    <button id="gerarPalavra" onclick="palavraAleatoria()">Gerar palavra</button>
+    <div id="forca">
+        <div id="cabeCor">
+            <div id="cabeca"></div>
+            <div id="corpoCompleto">
+                <div id="corpo">
+                    <div id="bracoD"></div>
+                    <div id="bracoE"></div>
+                    <div id="pernaD"></div>
+                    <div id="pernaE"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="mostrarLetras">
+        <h1>Letras escolhidas:</h1>
+        <p id="paragrafo"></p>
+    </div>
 </body>
 </html>

@@ -1,4 +1,3 @@
-
 function clicar(){
     let inputT = document.querySelector('#inputText').value.toUpperCase();
     let divSeparador = document.querySelector('#separador');
@@ -13,4 +12,3 @@ function clicar(){
         divSeparador.appendChild(p);    
     }
 }
-

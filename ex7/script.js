@@ -27,4 +27,88 @@ const palavras = [
     "zebra", "zoologico", "zumbi", "zero", "zagueiro"
 ];
 
-const num = mach.randow()
+const letras = [ "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"
+]
+
+const teclado = document.querySelector('#teclado');
+const palavra = document.querySelector('#palavra');
+let palavraEscolhida
+let letrasApertadas = [];
+let erros = 0;
+let divLetrasEscolhidas = document.querySelector('#mostrarLetras');
+let paragrafo = document.querySelector('#paragrafo')
+
+letras.forEach((letra)=>{
+
+    const tecla = document.createElement('button')
+    tecla.innerText = letra;
+
+    tecla.addEventListener('click', ()=>{
+        handleTeclaClick(letra)
+    })
+
+    teclado.appendChild(tecla)
+})
+
+function palavraAleatoria(){
+    palavraEscolhida = palavras[Math.floor(Math.random() * palavras.length - 1)].toUpperCase();
+    console.log(palavraEscolhida);
+
+    letrasApertadas = []
+
+    renderizarLetras()
+}
+
+function renderizarLetras(){
+    palavra.innerHTML = ''
+
+    palavraEscolhida.split('').forEach((letra) => {
+        palavra.insertAdjacentHTML('beforeend', letrasApertadas.includes(letra) ? `<p>${letra}</p>` : `<p>_</p>`
+    )
+    })
+
+}
+
+function handleTeclaClick(tecla){
+    console.log(palavraEscolhida.includes(tecla))
+
+    letrasApertadas.push(tecla)
+
+    paragrafo.innerText = letrasApertadas
+    divLetrasEscolhidas.appendChild(paragrafo)
+
+    if (!palavraEscolhida.includes(tecla)){
+        addError()
+        return 
+    }
+    renderizarLetras()
+
+}
+
+function addError(){
+    erros++
+    if(erros == 1){
+        document.querySelector('#cabeca').style.display = 'block';
+    }else if(erros == 2){
+        document.querySelector('#corpo').style.display = 'block';
+    }else if(erros == 3){
+        document.querySelector('#bracoD').style.display = 'block';
+    }else if(erros == 4){
+        document.querySelector('#bracoE').style.display = 'block';
+    }else if(erros == 5){
+        document.querySelector('#pernaD').style.display = 'block';
+    }else{
+        document.querySelector('#pernaE').style.display = 'block';
+        alert("Você perdeu!!");
+        erros = 0; 
+        document.querySelector('#cabeca').style.display = 'none';
+        document.querySelector('#corpo').style.display = 'none';
+        document.querySelector('#bracoD').style.display = 'none';
+        document.querySelector('#bracoE').style.display = 'none';
+        document.querySelector('#pernaD').style.display = 'none';     
+        document.querySelector('#pernaE').style.display = 'none';
+        palavraAleatoria()
+        letrasApertadas = []
+        paragrafo.innerText = ''
+    }
+}

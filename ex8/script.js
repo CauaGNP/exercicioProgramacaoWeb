@@ -19,3 +19,4 @@ async function fetcha(){
 function buttonIdFetchClick(){
     fetcha()
 }
+// free rest api

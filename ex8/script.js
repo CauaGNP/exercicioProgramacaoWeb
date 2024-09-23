@@ -1,22 +1,27 @@
-const idInput = document.querySelector('#idInput');
-const buttonId = document.querySelector('#buttonId');
-const textPre = document.querySelector('#textPre');
+const inputBuscaIP = document.querySelector('#idBuscaIP');
+const buttonBuscaIP = document.querySelector('#idButtonBuscaIP');
+const textoBuscaIP = document.querySelector('#textoBuscaIp');
 
-buttonId.onclick = buttonIdFetchClick;
+const buttonIPFetchClick = () => {
+    const buscaIPValue = inputBuscaIP.value.trim();
 
-async function fetcha(){
-    const inputValue = String(idInput.value)
-    const fetchURL = `https://swapi.dev/api/people/${inputValue}`
-    const fetch_ = await fetch(fetchURL)
-    .then((resposta) => {
-        console.log(resposta)
-    });
-
-    const awaitJSON = await fetch_.json()
-    console.log(awaitJSON)
+    if(!buscaIPValue){
+        alert('Input não preenchido');
+        inputBuscaIP.focus()
+    }else{
+        fetch(`https://api.ipstack.com/${buscaIPValue}?access_key=9e85bb46f185abba73f30cd834c74f3a`)
+        .then( response => response.json())
+        .then(data => {
+        if(data.success != false){
+            console.log(data)
+            textoBuscaIP.innerText = JSON.stringify(data)
+        }else{
+            alert(`Erro ${data.error.code}, ${data.error.type}`)
+        }})
+        .catch((error) => {
+            console.log(error)
+        }) 
+    }
 }
 
-function buttonIdFetchClick(){
-    fetcha()
-}
-// free rest api
+buttonBuscaIP.onclick = buttonIPFetchClick;

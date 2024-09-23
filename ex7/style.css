@@ -1,152 +1,152 @@
 * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-  
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  
-    gap: 15px;
-  }
-  
-  #wrapper {
-    width: 75%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 25px;
-  }
-  
-  button {
-    border: 0;
-    outline: 0;
-  
-    transition: all 100ms ease-in;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    opacity: 0.7;
-  }
-  
-  #palavra {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    flex-wrap: wrap;
-  }
-  
-  #palavra p {
-    width: 50px;
-    height: 60px;
-    border: 1px solid black;
-    border-radius: 0.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-  
-    font-size: 1.5rem;
-    margin: 0;
-  }
-  
-  #teclado {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 5px;
-  }
-  
-  #teclado button {
-    width: 35px;
-    height: 35px;
-    
-    border: 1px solid black;
-    border-radius: 0.25rem;
-  }
-  
-  #gerarPalavra {
-    background-color: blueviolet;
-    color: white;
-    font-size: 1.25rem;
-    border-radius: 0.25rem;
-    padding: 0.75rem 2.5rem;
-  }
+  box-sizing: border-box;
+}
 
-  #forca{ 
-    position: relative;
-  }
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
 
-  #cabeca{
-    display: none;
-    border: 1px solid black;
-    border-radius: 100%;
-    width: 50px;
-    height: 50px;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  #corpo{
-    display: none;
-    border: 1px solid black;
-    height: 50px;
-    width: 1px;
-    margin: auto;
-  }
+  gap: 15px;
+}
 
-  #corpoCompleto{
-    position: relative;
-  }
+#wrapper {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 25px;
+}
 
-  #bracoD{
-    display: none;
-    border: 1px solid black;
-    height: 40px;
-    width: 1px;
+button {
+  border: 0;
+  outline: 0;
 
-    position: absolute;
-    top: 0;
-    right: 12px;
-    transform: rotate(-30deg);
-  }
+  transition: all 100ms ease-in;
+  cursor: pointer;
+}
 
-  #bracoE{
-    display: none;
-    border: 1px solid black;
-    height: 40px;
-    width: 1px;
+button:hover {
+  opacity: 0.7;
+}
 
-    position: absolute;
-    top: 0;
-    left: 12px;
-    transform: rotate(30deg);
-  }
+#palavra {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
 
-  #pernaE{
-    display: none;
-    border: 1px solid black;
-    height: 40px;
-    width: 1px;
+#palavra p {
+  width: 50px;
+  height: 60px;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
 
-    position: absolute;
-    bottom: -70%;
-    left: 12px;
-    transform: rotate(30deg);
-  }
+  font-size: 1.5rem;
+  margin: 0;
+}
 
-  #pernaD{
-    display: none;
-    border: 1px solid black;
-    height: 40px;
-    width: 1px;
+#teclado {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
 
-    position: absolute;
-    bottom: -70%;
-    right: 12px;
-    transform: rotate(-30deg);
-  }
+#teclado button {
+  width: 35px;
+  height: 35px;
+  
+  border: 1px solid black;
+  border-radius: 0.25rem;
+}
+
+#gerarPalavra {
+  background-color: blueviolet;
+  color: white;
+  font-size: 1.25rem;
+  border-radius: 0.25rem;
+  padding: 0.75rem 2.5rem;
+}
+
+#forca{ 
+  position: relative;
+}
+
+#cabeca{
+  display: none;
+  border: 1px solid black;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+}
+
+#corpo{
+  display: none;
+  border: 1px solid black;
+  height: 50px;
+  width: 1px;
+  margin: auto;
+}
+
+#corpoCompleto{
+  position: relative;
+}
+
+#bracoD{
+  display: none;
+  border: 1px solid black;
+  height: 40px;
+  width: 1px;
+
+  position: absolute;
+  top: 0;
+  right: 12px;
+  transform: rotate(-30deg);
+}
+
+#bracoE{
+  display: none;
+  border: 1px solid black;
+  height: 40px;
+  width: 1px;
+
+  position: absolute;
+  top: 0;
+  left: 12px;
+  transform: rotate(30deg);
+}
+
+#pernaE{
+  display: none;
+  border: 1px solid black;
+  height: 40px;
+  width: 1px;
+
+  position: absolute;
+  bottom: -70%;
+  left: 12px;
+  transform: rotate(30deg);
+}
+
+#pernaD{
+  display: none;
+  border: 1px solid black;
+  height: 40px;
+  width: 1px;
+
+  position: absolute;
+  bottom: -70%;
+  right: 12px;
+  transform: rotate(-30deg);
+}

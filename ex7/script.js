@@ -34,12 +34,11 @@ const teclado = document.querySelector('#teclado');
 const palavra = document.querySelector('#palavra');
 let palavraEscolhida
 let letrasApertadas = [];
-let erros = 0;
+
 let divLetrasEscolhidas = document.querySelector('#mostrarLetras');
 let paragrafo = document.querySelector('#paragrafo')
 
 letras.forEach((letra)=>{
-
     const tecla = document.createElement('button')
     tecla.innerText = letra;
 
@@ -54,8 +53,9 @@ function palavraAleatoria(){
     palavraEscolhida = palavras[Math.floor(Math.random() * palavras.length - 1)].toUpperCase();
     console.log(palavraEscolhida);
 
+    erros = 0
     letrasApertadas = []
-
+    paragrafo.innerText = ''
     renderizarLetras()
 }
 
@@ -66,7 +66,6 @@ function renderizarLetras(){
         palavra.insertAdjacentHTML('beforeend', letrasApertadas.includes(letra) ? `<p>${letra}</p>` : `<p>_</p>`
     )
     })
-
 }
 
 function handleTeclaClick(tecla){
@@ -82,7 +81,6 @@ function handleTeclaClick(tecla){
         return 
     }
     renderizarLetras()
-
 }
 
 function addError(){

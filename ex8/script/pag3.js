@@ -27,5 +27,4 @@ const buttonSimboloFetchClick = () => {
         }
     })
 }
-
 buttonBuscaSimbolo.onclick = buttonSimboloFetchClick;

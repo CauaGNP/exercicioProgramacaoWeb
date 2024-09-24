@@ -20,7 +20,12 @@ const buttonDadosFetchClick = () => {
         return response.json();
     })
     .then((data) => {
-        textoBuscaDados.innerText = JSON.stringify(data)
+        if(data.success != false){
+            textoBuscaDados.innerText = JSON.stringify(data)
+        }else{
+            alert(`Erro ${data.error.code}, ${data.error.type}`)
+            inputBuscaDados.focus()
+        }
     })
 }
 

@@ -19,7 +19,12 @@ const buttonSimboloFetchClick = () => {
         return response.json();
     })
     .then((data) => {
-       textoBuscaSimbolo.innerText = JSON.stringify(data)
+        if(data != false){
+            textoBuscaSimbolo.innerText = JSON.stringify(data)
+        }else{
+            alert(`Erro ${data.error.code}, ${data.error.type}`)
+            inputBuscaSimbolo.focus()
+        }
     })
 }
 

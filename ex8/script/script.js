@@ -23,6 +23,7 @@ const buttonIPFetchClick = () => {
             textoBuscaIP.innerText = JSON.stringify(data)
         }else{
             alert(`Erro ${data.error.code}, ${data.error.type}`)
+            inputBuscaIP.focus()
         }})
         .catch((error) => {
             console.log(error)

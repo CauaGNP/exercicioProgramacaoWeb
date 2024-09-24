@@ -1,0 +1,28 @@
+body{
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+p{
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.list{
+    width: 300px;
+    margin: auto;
+}
+
+ol{
+    width: 78%;
+}
+
+li{
+    list-style: none;
+}

@@ -6,11 +6,17 @@ const buttonIPFetchClick = () => {
     const buscaIPValue = inputBuscaIP.value.trim();
 
     if(!buscaIPValue){
-        alert('Input não preenchido');
-        inputBuscaIP.focus()
+        alert('Preencha o campo');
+        inputBuscaIP.focus();
+        return 
     }else{
         fetch(`https://api.ipstack.com/${buscaIPValue}?access_key=9e85bb46f185abba73f30cd834c74f3a`)
-        .then( response => response.json())
+        .then(response => {
+            if (!response.ok){
+                throw new Error('Erro ao obter os dados.');
+            }
+            return response.json();
+        })
         .then(data => {
         if(data.success != false){
             console.log(data)

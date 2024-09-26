@@ -19,11 +19,24 @@ const buttonIPFetchClick = () => {
         })
         .then(data => {
         if(data.success != false){
-            console.log(data)
-            textoBuscaIP.innerText = JSON.stringify(data)
+            textoBuscaIP.innerText = '';
+            let objectData = [
+                {nomeCampo : "Nome do continente:" , dados : data.continent_name},
+                {nomeCampo : "Nome do país:" , dados : data.continent_name},
+                {nomeCampo : "Nome do estado:" , dados : data.region_name},
+                {nomeCampo : "Nome da cidade:" , dados : data.city},
+                {nomeCampo : "Nome da capital:" , dados : data.location.capital},
+                {nomeCampo : "Latitude:" , dados : data.latitude},
+                {nomeCampo : "Longitude:" , dados : data.longitude}
+            ];
+            objectData.forEach((data) => {
+                const listData = document.createElement('li');
+                listData.innerText = `${data.nomeCampo} ${data.dados}`;
+                textoBuscaIP.appendChild(listData);
+            })
         }else{
-            alert(`Erro ${data.error.code}, ${data.error.type}`)
-            inputBuscaIP.focus()
+            alert(`Erro ${data.error.code}, ${data.error.type}`);
+            inputBuscaIP.focus();
         }})
         .catch((error) => {
             console.log(error)

@@ -20,10 +20,19 @@ const buttonSimboloFetchClick = () => {
     })
     .then((data) => {
         if(data.success != false){
-            textoBuscaSimbolo.innerText = JSON.stringify(data)
+            textoBuscaSimbolo.innerText = '';
+            let objectData = [
+                {nomeCampo : "Base da conversão:" , dados: data.base},
+                {nomeCampo : "Conversão de " , dados : Object.entries(data.rates)}
+            ];
+            objectData.forEach((data) => {
+                const listData = document.createElement('li');
+                listData.innerText = `${data.nomeCampo} ${data.dados}`;
+                textoBuscaSimbolo.appendChild(listData);
+            })
         }else{
-            alert(`Erro ${data.error.code}, ${data.error.type}`)
-            inputBuscaSimbolo.focus()
+            alert(`Erro ${data.error.code}, ${data.error.type}`);
+            inputBuscaSimbolo.focus();
         }
     })
 }

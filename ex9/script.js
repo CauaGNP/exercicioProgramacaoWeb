@@ -1,4 +1,17 @@
+let buttonAddTask = document.querySelector('#addTask');
+let inputGetTask = document.querySelector('#inputTask');
+
 const olList = document.querySelector('#olListId');
+const headers = {
+    "X-Parse-Application-Id": "AlAa6WeIMH4BOSUbQjRV4eQ5MtzzSMITSo05IP7S",
+    "X-Parse-REST-API-Key": "apIcBBbOVEz8bx4LsimkB6A4tFd6OW0ukN7StPaE"
+};
+const headersJson = {
+    ...headers,
+    "Content-Type" : "application/json"
+};
+const url = "https://parseapi.back4app.com/classes/Tarefa";
+
 
 const displayTask = (data) => {
     olList.innerHTML = '';
@@ -19,12 +32,9 @@ const displayTask = (data) => {
 
 const getTask = async () =>{
    try {
-        const response = await fetch('https://parseapi.back4app.com/classes/Tarefa', {
+        const response = await fetch(url , {
             method: "GET",
-            headers: {
-                "X-Parse-Application-Id": "AlAa6WeIMH4BOSUbQjRV4eQ5MtzzSMITSo05IP7S",
-                "X-Parse-REST-API-Key": "apIcBBbOVEz8bx4LsimkB6A4tFd6OW0ukN7StPaE",
-            }
+            headers: headersJson
         })
         if(!response.ok){
             alert(`Erro causado pelo acesso ao servidor ${response.status}`);
@@ -36,5 +46,25 @@ const getTask = async () =>{
         console.log(error);
     }
 }
+
+buttonAddTask.addEventListener('click', async () => {;
+    let inputAddTaskValue = inputGetTask.value.trim();
+
+    if(inputAddTaskValue == ''){
+        alert('Insira uma nova tarefa');
+        inputGetTask.focus();
+    }
+    
+    try {
+        const responseAddTask = await fetch(url ,{
+            method: "POST",
+            headers: headersJson,
+        }
+                 
+        )
+    } catch (error) {
+        console.log(error)
+    }
+})
 
 window.onload = getTask

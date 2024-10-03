@@ -2,6 +2,7 @@ let buttonAddTask = document.querySelector('#addTask');
 let inputAddTask = document.querySelector('#inputTask');
 
 const olList = document.querySelector('#olListId');
+
 const headers = {
     "X-Parse-Application-Id": "AlAa6WeIMH4BOSUbQjRV4eQ5MtzzSMITSo05IP7S",
     "X-Parse-REST-API-Key": "apIcBBbOVEz8bx4LsimkB6A4tFd6OW0ukN7StPaE"
@@ -34,6 +35,7 @@ const displayTask = (data) => {
     });
 }
 
+// Através da checkbox obtemos o booleano que mudara no banco de dados se a tarefa foi realizada ou não
 const checkBoxCLick = async (checkbox, result) => {
     console.log(result)
     try {
@@ -58,6 +60,7 @@ const checkBoxCLick = async (checkbox, result) => {
     }
 }
 
+// Aqui conseguimos deletar a tarefa
 const buttonDeleteTask = async (button, result) =>{
     try {
         button.disabled = true;

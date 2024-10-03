@@ -28,7 +28,7 @@ const displayTask = (data) => {
         list.appendChild(checkBox);
         const buttonDelete = document.createElement('button');
         buttonDelete.innerText = 'x';
-        buttonDelete.onclick = () => buttonDeleteTask(button, result)
+        buttonDelete.onclick = () => buttonDeleteTask(buttonDelete, result)
         list.appendChild(buttonDelete);
         olList.appendChild(list);
     });
@@ -55,6 +55,25 @@ const checkBoxCLick = async (checkbox, result) => {
     } catch (error) {
         checkbox.checked = !checkbox.checked;
         console.log(error);
+    }
+}
+
+const buttonDeleteTask = async (button, result) =>{
+    try {
+        button.disabled = true;
+        const response = await fetch(`${url}/${result.objectId}`,
+            {
+                method: 'DELETE',
+                headers: headers,
+        });
+        button.disabled = false;
+        if(!response.ok){
+            alert(`Erro no servidor ${result.status}`);
+            throw new Error(`Erro no servidor ${result.status}`);
+        }
+        getTask();
+    } catch (error) {
+        
     }
 }
 
@@ -103,6 +122,5 @@ buttonAddTask.addEventListener('click', async () => {;
         console.log(error)
     }
 })
-
 
 window.onload = getTask

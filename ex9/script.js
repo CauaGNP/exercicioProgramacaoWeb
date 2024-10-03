@@ -1,5 +1,5 @@
 let buttonAddTask = document.querySelector('#addTask');
-let inputGetTask = document.querySelector('#inputTask');
+let inputAddTask = document.querySelector('#inputTask');
 
 const olList = document.querySelector('#olListId');
 const headers = {
@@ -12,7 +12,7 @@ const headersJson = {
 };
 const url = "https://parseapi.back4app.com/classes/Tarefa";
 
-
+// Exibindo as tarefas 
 const displayTask = (data) => {
     olList.innerHTML = '';
     const resultado = data.results;
@@ -24,12 +24,39 @@ const displayTask = (data) => {
         const checkBox = document.createElement('input');
         checkBox.type = 'checkbox';
         checkBox.checked = result.concluida;
-        checkBox.disabled = true;
+        checkBox.onchange = () => checkBoxCLick(checkBox, result)
         list.appendChild(checkBox);
+        const buttonDelete = document.createElement('button');
+        buttonDelete.innerText = 'x';
+        buttonDelete.onclick = () => buttonDeleteTask(button, result)
+        list.appendChild(buttonDelete);
         olList.appendChild(list);
     });
 }
 
+const checkBoxCLick = async (checkbox, result) => {
+    try {
+        checkbox.dissabled = false;
+        const response = await fetch(`${url}/${result.objectId}`, {
+            method: 'PUT',
+            headers: headersJson,
+            body: JSON.stringify({concluida : !result.concluida})
+        })
+        checkbox.dissabled = true;
+        if(!response.ok){
+            checkbox.checked = !checkbox.checked;
+            alert("Erro ao acessar o servidor: " + response.status);
+            throw new Error("Erro encontrado: " + response.status);
+        }
+        console.log(response)
+    } catch (error) {
+        checkbox.checked = !checkbox.checked;
+        console.log(error);
+    }
+}
+
+
+// Obtendo as tarefas do banco de dados 
 const getTask = async () =>{
    try {
         const response = await fetch(url , {
@@ -47,24 +74,33 @@ const getTask = async () =>{
     }
 }
 
+// Adicionando tarefas para o banco de dados
 buttonAddTask.addEventListener('click', async () => {;
-    let inputAddTaskValue = inputGetTask.value.trim();
-
+    let inputAddTaskValue = inputAddTask.value.trim();
     if(inputAddTaskValue == ''){
-        alert('Insira uma nova tarefa');
-        inputGetTask.focus();
+        alert('Insira uma nova tarefa para prosseguir');
+        inputAddTask.focus();
+        return;
     }
-    
     try {
+        // responseAddTask == response
         const responseAddTask = await fetch(url ,{
             method: "POST",
             headers: headersJson,
+            body : JSON.stringify({descricao : inputAddTaskValue})
+        })
+        console.log(responseAddTask)
+        if(!responseAddTask.ok){
+            alert(`Erro ao acessar o servidor${responseAddTask.status}`);
+            throw new Error(`Erro ao acessar o servidor${responseAddTask.status}`);
         }
-                 
-        )
+        inputAddTask.value = ''
+        inputAddTask.focus()
+        getTask()
     } catch (error) {
         console.log(error)
     }
 })
+
 
 window.onload = getTask

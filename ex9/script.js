@@ -35,26 +35,28 @@ const displayTask = (data) => {
 }
 
 const checkBoxCLick = async (checkbox, result) => {
+    console.log(result)
     try {
-        checkbox.dissabled = false;
+        checkbox.disabled = true;
         const response = await fetch(`${url}/${result.objectId}`, {
             method: 'PUT',
             headers: headersJson,
             body: JSON.stringify({concluida : !result.concluida})
         })
-        checkbox.dissabled = true;
+        checkbox.disabled = false;
         if(!response.ok){
             checkbox.checked = !checkbox.checked;
             alert("Erro ao acessar o servidor: " + response.status);
             throw new Error("Erro encontrado: " + response.status);
         }
         console.log(response)
+        await getTask()
+        
     } catch (error) {
         checkbox.checked = !checkbox.checked;
         console.log(error);
     }
 }
-
 
 // Obtendo as tarefas do banco de dados 
 const getTask = async () =>{

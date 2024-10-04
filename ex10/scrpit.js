@@ -1,6 +1,7 @@
 let buttonSubmit = document.querySelector('#buttonEnviarDespesas');
 let inputDespesas = document.querySelector('#inputDespesa');
 let inputValorDespesas = document.querySelector('#inputvalorGastoDespesa');
+let olList = document.querySelector('#list')
 
 const headers = {
     "X-Parse-Application-Id": "Ph6uxRL3eforH6wBiUwqYeFCrcoxiR0pJKSDxGeU",
@@ -36,9 +37,14 @@ const getTask = async () =>{
 }
 
 const displayTask = async (data) => {
+    olList.innerText = ' ';
     const resultado = data.results;
     resultado.forEach( (result) => {
-        let list = document.querySelector('#list')
+        // Adicionar o R$ usando o toLocateString()
+        const text = document.createTextNode(`${result.nome_despesas} = ${result.valor}`)
+        let list = document.createElement('li');
+        list.appendChild(text);
+        olList.appendChild(list)
     });
 }
 

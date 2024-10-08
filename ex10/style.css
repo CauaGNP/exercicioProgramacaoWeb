@@ -1,4 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+:root{
+    --PoppinsFont: "Poppins";
+    --PrimaryColor: #72BF78;
+    --FontColor: #FFFFFF;
+    --BackGroundColor: #e9e9e9;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #F4F4F4;
+}
+
+header{
+    background-color: var(--PrimaryColor);
+    color: var(--FontColor);
+
+    height: 50px;
+
+    margin-bottom: 24px;
+    padding: 10px;
+
+    font-family: var(--PoppinsFont);
+    font-size: 12px;
+
+    text-shadow:    
+    1px 1px 0 black, 
+    -1px 1px 0 black, 
+    1px -1px 0 black, 
+    -1px -1px 0 black;;
+    text-align: center;
+}
+
+main{
+    background-color: var(--BackGroundColor);
+
+    width: 400px;
+    height: 200px;
+
+    margin: auto;
+    padding: 12px;
+
+    text-align: center;
+    align-items: center;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#addExpenseDiv{
+    display: flex;
+    flex-direction: column;
+}
+
+#addExpenseDiv input{
+    width: 150px;
+
+    margin-bottom: 8px;
+}
+
+#buttonEnviarDespesas{
+    margin-bottom: 8px;
+}
+
+#divDespesas{
+    margin-bottom: 8px;
+}
+
+#list button{
+    margin: 0px 4px;
+}
+
 #atualizarValor{
+    background-color: #a5a4a4;
+    width: 400px;
+    height: 400px;
+
+    padding: 16px;
+
+    align-items: center;
+    
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#atualizarValor label{
+    font-family: var(--PoppinsFont);
+}
+
+#attValue{
+    width: 200px;
+}
+
+#delet{
     background-color: #a5a4a4;
     width: 500px;
     height: 100px;
@@ -14,8 +120,4 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-#attValue{
-    width: 200px;
 }

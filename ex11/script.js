@@ -160,19 +160,6 @@ async function verificacao() {
   const data = await response.json()
   console.log(data)  
   if(data.code === 209){
-    window.location.href = "https://cautious-guide-4jqvwrqr4vvw376pr-5500.app.github.dev/ex11/login.html"
+    window.location.href = "https://exercicio-programacao-web-ck1p.vercel.app/ex11/login.html"
   }
 }
-
-// async function verificarLogin(){
-//   await fetch(`${baseURL}/users/me`, {
-//     method : "GET",
-//     headers : headers,
-//     "X-Parse-Session-Token" : sessionToken
-//   }
-//   ).then( function (response){
-//     const text = response.JSON
-//     console.log(text)
-//   })
-// }
-// 209	InvalidSessionToken
